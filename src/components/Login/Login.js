@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Image, Text } from 'react-native';
+import { View, StyleSheet, Image, Text, KeyboardAvoidingView } from 'react-native';
+import LoginForm from './LoginForm';
 
-export default class Splash extends Component {
+export default class Login extends Component {
     render() {
         return (
+            <KeyboardAvoidingView behavior="padding" style={styles.container}>
             <View style={styles.container}>
                 <View style={styles.logoContainer}>
                     <Image 
@@ -11,12 +13,14 @@ export default class Splash extends Component {
                     source={require('../../Images/Octocat.png')} 
                     />
 
-                    <Text>An App Made for Github Using React Native</Text>
+                    <Text style={styles.title}>An App Made for Github Using React Native</Text>
                  </View>
                    <View style={styles.formContainer}>
+                       <LoginForm />
                    </View>
             
             </View>
+            </KeyboardAvoidingView>
         );
     }
 }
@@ -38,7 +42,9 @@ const styles = StyleSheet.create({
     title: {
         color: '#FFF',
         marginTop: 10,
-        width: 160
+        width: 160,
+        textAlign: 'center',
+        opacity: 0.9
     }
 
 });
